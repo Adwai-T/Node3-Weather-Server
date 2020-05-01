@@ -12,6 +12,8 @@ const getWeather = require('./Utils/get-Weather');
 //To Create the server call the express method.
 const app = express();
 
+//Get the port value form heroku or for local default back to 3000.
+const port = process.env.PORT || 3000;
 //path to the partials folder.
 const partialsPath = path.join(__dirname, '../views/partials');
 //Set up Handlebar for templating:
@@ -76,7 +78,7 @@ app.get('*', (req, res)=>{
 
 
 //3000 is the port used for development. Optional function can be passed to run when the server starts.
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Server Started.')
 });
 
